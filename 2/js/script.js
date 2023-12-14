@@ -1,6 +1,7 @@
 $(document).ready(function () {
     function submitForm() {
         let response = JSON.stringify($("#form").serializeArray());
+        console.log($("#form").serializeArray());
         dataOutput(response);
         return response;
     }
@@ -17,7 +18,7 @@ $(document).ready(function () {
             url: "../abstract.php",
             data: submitForm(),
             success: function (data) {
-            alert(data);
+                alert(data);
             },
         });
         return false;
