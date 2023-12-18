@@ -12,99 +12,81 @@ html {
     font-size: 16px;
 }
 body {
-	color: #4b4b4b;
-	font-family: "Roboto";
+    color: #4b4b4b;
+    font-family: "Roboto";
 }
 .wrapper {
     min-height: 100%;
     overflow: hidden;
     display: flex;
     flex-direction: column; 
-    background-color: #F5F5F5;   
     max-width: 1050px;
     margin: 0px auto;
     padding: 0px 15px;
 }
 .block_one {
+    display: none;
     height: 100px;
-    width: 100%;    
-
+    width: 100%;   
     background-color: #c2da69;
-
     border: 1px solid #000;
+}
+.block_one--active {
+    display: block;
 }
 .block_one__title {
     text-align: center;
 }
 .block_two {
-    height: 100%;
     display: flex;
-    flex-wrap: wrap;
 }
-
-.block_two__item {
-    width: 100%;  
+.block_two > * {
+    width: calc(100% / 3);  
     height: 100px;    
     border: 1px solid #000;
 }
-
-.block_two__item--dashed {
+.block_two :nth-child(2) {
     border: 1px dashed #000;
 }
-
-.block_two__first_item {
+.block_two__blue {
     order: 1;
-    background-color: #a5c9f1;
+    background-color: #2a6eff;    
 }
-
-.block_two__second_item {
+.block_two__blue-light {
     order: 2;
-    background-color: #4e9bf3;
+    background-color: #89d0ff;
 }
-
-.block_two__third_item {    
+.block_two__blue-dark {    
     order: 3;
-    background-color: #177bec;
+    background-color: #0a0cb1;
 }
-
+.block_two__blue--first {
+    order: 1;    
+}
 .block_three {
-    height: 100%; 
     display: flex;    
-    flex-wrap: wrap;
 }
-
-.block_three__item {
+.block_three > * {
     height: 100px;
-    width: 100%;
+    width: calc(100% / 3);
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #da6969;
     border: 1px solid #000;
 }
-
-.block_three__item--wide {
+.block_three :nth-child(2) {
+    width: calc((100% / 3) * 2);
     background-color: #da69c7;
 }
-
-@media (min-width: 768px) {
-    .block_two {
-        flex-wrap: nowrap;
-    }
-    
-    .block_two__item {
-        width: calc(100% / 3);
-    }
-    
+@media (max-width: 768px) {
+    .block_two,
     .block_three {
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
     }
-
-    .block_three__item {
-        width: calc(100% / 3);        
-    }
-    
-    .block_three__item--wide {
-        width: calc((100% / 3) * 2);;
+    .block_two > * ,
+    .block_three > * , 
+    .block_three :nth-child(2) {
+        width: 100%;        
     }
 }
