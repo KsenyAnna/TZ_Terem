@@ -1,21 +1,18 @@
-button1.onclick = function show_block () {
-    let myBlock = document.getElementsByClassName('block_one');
+const blockOne = document.querySelector('.block_one');
+const blockBlue = document.querySelector('.block_two__blue-light ');
+const blockBlueLight = document.querySelector('.block_two__blue');
 
-    if (myBlock[0].style.display === 'none') {
-        myBlock[0].style.display = 'block';
-    } else {
-        myBlock[0].style.display = 'none';
-    }
-};
+function show_blockOne () {
+    blockOne.classList.toggle('block_one--active');
+}
+function blocks_change () {
+    blockBlue.classList.toggle('block_two__blue--first');
+    blockBlueLight.classList.toggle('block_two__blue--first');
+}
 
-button2.onclick = function block_change () {
-    let items = document.getElementsByClassName('block_two__item');
+window.addEventListener('load', () => {
+    alert('Привет, мир');
+});
 
-    if (getComputedStyle(items[0]).order === '1') {
-        items[0].style.WebkitOrder = '2';
-        items[1].style.WebkitOrder = '1';
-    } else {
-        items[0].style.WebkitOrder = '1';
-        items[1].style.WebkitOrder = '2';
-    }
-};
+button1.addEventListener("click", show_blockOne);
+button2.addEventListener("click", blocks_change);
